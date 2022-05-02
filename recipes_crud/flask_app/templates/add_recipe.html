@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add a new recipe</title>
+</head>
+<body>
+    <h1>Add New Recipe</h1>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/">Logout</a>
+    <form action="/recipes/new" method="post">
+        <p>
+        Date Made On:
+            <input type="date" name="date_made_on" id="">
+        </p>
+        <p>
+        Under 30 Minutes?
+            <input type="radio" name="under_30_min" id="" value="Yes">
+            <label for="yes">Yes</label>
+            <input type="radio" name="under_30_min" id="" value="No">
+            <label for="no">No</label>
+        </p>
+        <p> 
+        Name:
+            <input type="text" name="name">
+        </p>
+        <p>
+        Description:
+            <textarea name="description" id="" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+        Instructions:
+            <textarea name="instructions" id="" cols="30" rows="10"></textarea>
+        </p>
+        <button>Create</button>
+    </form>
+</body>
+</html>
