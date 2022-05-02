@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit pie</title>
+</head>
+<body>
+    <h1>Edit {{ pypie.name }}</h1>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+    
+    <form action="/edit/{{pypie.id}}" method="post">
+        <p>
+        Name:
+            <input type="text" name="name" id="" value="{{pypie.name}}">
+        </p>
+        <p>
+        Filling:
+            <input type="text" name="filling" id="" value="{{pypie.filling}}">
+        </p>
+        <p>
+        Crust:
+            <input type="text" name="crust" id="" value="{{pypie.crust}}">
+        </p>
+        <button>Edit Pie</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

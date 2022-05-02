@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> pypie derby </title>
+</head>
+<body>
+    <h1>PyPie Derby</h1>
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>PyPie By</th>
+            <th>Votes</th>
+        </tr>
+        {% for pypie in all_pypies %}
+        <tr>
+            <td><a href="/show/{{pypie.id}}">{{ pypie.name }}</td></a>
+            <td>{{ pypie.get_user.first_name }} {{ pypie.get_user.last_name }}</td>
+            <td>{{ pypie.votes }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

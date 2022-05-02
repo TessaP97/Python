@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My pypies</title>
+</head>
+<body>
+    <div class="users_pies">
+        <h1>Pypies by {{ user.first_name }}</h1>
+        <a href="/pies">Pie Derby</a>
+        <a href="/logout">Logout</a>
+        <div>
+            {% for pypie in all_pypies %}
+                <p>{{ pypie.name }}</p>
+                    <a href="/edit/{{pypie.id}}"><button>Edit</button></a>
+                    <a href="/pypie/{{pypie.id}}/delete"><button>Delete</button></a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="add_new_pie">
+        <h1>Add New Pypie</h1>
+        <form action="/new/pie" method="post">
+            <p>
+            Name:
+                <input type="text" name="name" id="">
+            </p>
+            <p>
+            Filling: 
+            <input type="text" name="filling" id="">
+            </p>
+            <p>
+            Crust:
+                <input type="text" name="crust" id="">
+            </p>
+            <button>Add Pie</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color: red;">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
