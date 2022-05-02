@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+<body>
+    <form action="/result" method="post">
+        <label for="yourname">Your Name</label>
+        <input type="text" name="your_name" id="name">
+        <label for="location">Dojo Location</label>
+        <select name="campus" id="campus">
+            <option value="sanjose">San Jose</option>
+            <option value="losangeles">Los Angeles</option>
+            <option value="orangecounty">Orange County</option>
+            <option value="online">Online</option>
+        </select>
+        <label for="favorite_language">Favorite Language</label>
+        <select name="favorite_language" id="favlanguage">
+            <option name="language" id="language">Python</option>
+            <option name="javascript" id="js">javascript</option>
+            <option name="java" id="java">Java</option>
+            <option name="threejs" id="threejs">Three.js</option>
+        </select>
+        <label for="textbox">Comment (optional):</label>
+        <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
