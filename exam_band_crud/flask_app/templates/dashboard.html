@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> users Dashboard </title>
+</head>
+<body>
+    <h1>Rock On {{ user.first_name }} {{ user.last_name }}!!!</h1>
+    <div>
+        <a href="/mybands/{{user.id}}">My Bands</a>
+        <a href="/new/band">New Band</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <h2>All Bands</h2>
+    <table>
+        <tr>
+            <th>Band Name</th>
+            <th>Founding Member</th>
+            <th>Genre</th>
+            <th>Actions</th>
+        </tr>
+        {% for band in all_bands %}
+        <tr>
+            <td>{{ band.band_name }}</td>
+            <td>{{ band.get_user.first_name }} {{ band.get_user.last_name }}</td>
+            <td>{{ band.music_genre }}</td>
+            <td>
+                {% if band.user_id == session['uuid'] %}
+                <a href="/edit/{{band.id}}"><button>Edit</button></a>
+                <a href="/band/{{band.id}}/delete"><button>Delete</button></a>
+                {% else %}
+                <a href="/mybands/{{band.user_id}}"><button>View</button></a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
